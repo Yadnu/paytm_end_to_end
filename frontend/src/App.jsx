@@ -1,10 +1,18 @@
+import { BrowserRouter } from "react-router-dom"
 
 function App() {
 
   return (
-    <div>
-        Hello world
-    </div>
+    <>
+      <BrowserRouter>
+      <Routes>
+        <Route path= "/signup" element></Route>
+        <Route path="/signin" element></Route>
+        <Route path="/dashboard" element></Route>
+        <Route path="send" element></Route>
+      </Routes>
+      </BrowserRouter>
+    </>
   )
 }
 

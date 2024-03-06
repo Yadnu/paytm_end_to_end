@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb+srv://admin:Virat%4018@cluster0.xbu8c1d.mongodb.net/paytm");
+mongoose.connect("mongodb+srv://admin:Virat%4018@cluster0.xbu8c1d.mongodb.net/paytm")
+.then( ()=>{console.log("connected");})
 const userSchema = new mongoose.Schema({
     username: {
         type:String,

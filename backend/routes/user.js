@@ -5,8 +5,9 @@ const jwt = require("jsonwebtoken");
 const {JWT_SECRET} = require("../config");
 const { authMiddleware } = require("../middleware");
 const router = express.Router();
+const {Account} = require("../db")
 
-const signupSchema = zod.object({
+const  signupSchema= zod.object({
     username: zod.string(),
     password: zod.string(),
     firstName: zod.string(),
@@ -14,7 +15,8 @@ const signupSchema = zod.object({
     
 })
 router.post("/signup", async (req, res) => {
-    const { success } = signupBody.safeParse(req.body)
+    console.log("request initiated");
+    const { success } = signupSchema.safeParse(req.body);
     if (!success) {
         return res.status(411).json({
             message: "Email already taken / Incorrect inputs"
